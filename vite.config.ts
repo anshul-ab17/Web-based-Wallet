@@ -4,10 +4,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig({
   base: "/Web-based-Wallet/",
-  plugins: [svelte(), nodePolyfills()],
-  resolve: {
-    alias: {
-      buffer: 'buffer',
-    },
-  },
+  define: { global: "globalThis" },
+  plugins: [svelte(), nodePolyfills({ protocolImports: true })],
+  resolve: { alias: { buffer: "buffer" } },
 })
