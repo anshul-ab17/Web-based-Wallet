@@ -10,14 +10,12 @@
   let publicKeys = [];
 
   async function addWallet() {
-    if (!mnemonic) return;
-
-    // mnemonicToSeed is async, returns a Buffer
+    if (!mnemonic) return; 
     const seed = await mnemonicToSeed(mnemonic);
     const path = `m/44'/501'/${currentIndex}'/0'`;
 
     const derived = derivePath(path, seed.toString("hex"));
-    const derivedSeed = derived.key; // Buffer
+    const derivedSeed = derived.key;  
 
     const secret = nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
     const keypair = Keypair.fromSecretKey(secret);
