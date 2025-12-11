@@ -6,7 +6,7 @@
   let mnemonic = "";
 
   function createSeedPhrase() {
-    const mn = generateMnemonic(); // sync
+    const mn = generateMnemonic(); 
     mnemonic = mn;
   }
 </script>
@@ -20,8 +20,7 @@
     </button>
   </div>
 
-  <div style="margin-bottom: 1.5rem;">
-    <!-- Two-way binding in Svelte -->
+  <div style="margin-bottom: 1.5rem;"> 
     <input
       type="text"
       bind:value={mnemonic}
